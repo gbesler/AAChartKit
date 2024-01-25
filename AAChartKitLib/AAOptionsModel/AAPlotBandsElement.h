@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -46,7 +46,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class AALabel;
 @interface AAPlotBandsElement : NSObject
 
 AAPropStatementAndPropSetFuncStatement(copy,   AAPlotBandsElement, NSString *, borderColor)
@@ -54,7 +53,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, b
 AAPropStatementAndPropSetFuncStatement(copy,   AAPlotBandsElement, NSString *, className)
 AAPropStatementAndPropSetFuncStatement(copy,   AAPlotBandsElement, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, from)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, AALabel  *, label)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSDictionary *, label)
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, to)
 AAPropStatementAndPropSetFuncStatement(assign, AAPlotBandsElement, NSUInteger , zIndex)
 

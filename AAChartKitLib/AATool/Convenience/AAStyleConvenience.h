@@ -3,7 +3,7 @@
 //  AAChartKitDemo
 //
 //  Created by AnAn on 2020/8/11.
-//  Copyright © 2020 An An. All rights reserved.
+//  Copyright © 2020 Danny boy. All rights reserved.
 //*************** ...... SOURCE CODE ...... ***************
 //***...................................................***
 //*** https://github.com/AAChartModel/AAChartKit        ***
@@ -45,16 +45,6 @@ NSString * AARgbaColor(int red,
             green,
             blue,
             alpha];
-}
-
-AACHARTKIT_STATIC_INLINE
-NSString * AARgbColor(int red,
-                      int green,
-                      int blue) {
-    return [NSString stringWithFormat:@"rgba(%d,%d,%d,1.0)",
-            red,
-            green,
-            blue];
 }
 
 AACHARTKIT_STATIC_INLINE

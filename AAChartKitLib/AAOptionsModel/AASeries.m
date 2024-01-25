@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -35,13 +35,7 @@
 
 @implementation AASeries
 
-AAPropSetFuncImplementation(AASeries, NSString     *, borderColor) //The border color, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
-AAPropSetFuncImplementation(AASeries, NSNumber     *, borderWidth) //The border width, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
-AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadius) //The corner radius of the border surrounding each column or bar.
-AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadiusTopLeft)
-AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadiusTopRight)
-AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadiusBottomLeft)
-AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadiusBottomRight)
+AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadius) 
 AAPropSetFuncImplementation(AASeries, AAMarker     *, marker) 
 AAPropSetFuncImplementation(AASeries, NSString     *, stacking) 
 AAPropSetFuncImplementation(AASeries, AAAnimation  *, animation) 
@@ -53,10 +47,10 @@ AAPropSetFuncImplementation(AASeries, AAShadow *, shadow)
 AAPropSetFuncImplementation(AASeries, AADataLabels *, dataLabels)
 AAPropSetFuncImplementation(AASeries, AAStates *, states)
 AAPropSetFuncImplementation(AASeries, AAPoint  *, point)
-AAPropSetFuncImplementation(AASeries, NSNumber *, pointWidth) //柱状图, 条形图, 柱形范围图, 瀑布图, 箱线图(盒须图)直接设置单个图形元素的宽度
-AAPropSetFuncImplementation(AASeries, NSNumber *, maxPointWidth) //柱状图, 条形图, 柱形范围图, 瀑布图, 箱线图(盒须图)直接设置单个图形元素的最大宽度
-AAPropSetFuncImplementation(AASeries, NSNumber *, minPointLength) //柱状图, 条形图, 柱形范围图, 瀑布图, 箱线图(盒须图)直接设置单个图形元素的最小高度
-
+AAPropSetFuncImplementation(AASeries, NSNumber *, borderRadiusTopLeft)
+AAPropSetFuncImplementation(AASeries, NSNumber *, borderRadiusTopRight)
+AAPropSetFuncImplementation(AASeries, NSNumber *, borderRadiusBottomLeft)
+AAPropSetFuncImplementation(AASeries, NSNumber *, borderRadiusBottomRight)
 
 @end
 
@@ -98,7 +92,6 @@ AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, remove) //删�
 AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, select) //选中
 AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, unselect) //取消选中
 AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, update) //更新
-AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, legendItemClick) //图例点击事件
 
 - (void)setClick:(NSString *)click {
     _click = [click aa_toPureJSString];
@@ -126,10 +119,6 @@ AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, legendItemClick
 
 - (void)setUpdate:(NSString *)update {
     _update = [update aa_toPureJSString];
-}
-
-- (void)setLegendItemClick:(NSString *)legendItemClick {
-    _legendItemClick = [legendItemClick aa_toPureJSString];
 }
 
 @end

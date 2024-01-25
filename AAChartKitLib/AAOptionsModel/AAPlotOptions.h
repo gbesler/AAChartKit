@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -32,21 +32,19 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAColumn, AABar, AALine, AASpline, AAArea, AAAreaspline, AAPie, AAColumnrange, AASeries, AABoxplot, AAScatter;
+@class AAColumn, AABar, AALine, AASpline, AAArea, AAAreaspline, AAPie, AASeries;
 
 @interface AAPlotOptions : NSObject
 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAColumn      *, column)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AALine        *, line)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAPie         *, pie)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AABar         *, bar)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AASpline      *, spline)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AASeries      *, series)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAArea        *, area)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAAreaspline  *, areaspline)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAColumnrange *, columnrange)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, NSObject      *, arearange)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AABoxplot     *, boxplot)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAScatter     *, scatter)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAColumn     *, column) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AALine       *, line) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAPie        *, pie) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AABar        *, bar) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AASpline     *, spline) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AASeries     *, series) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAArea       *, area) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAAreaspline *, areaspline) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, NSObject     *, columnrange) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, NSObject     *, arearange) 
 
 @end

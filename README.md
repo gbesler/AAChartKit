@@ -45,7 +45,7 @@
 
 </p>
 
-## [ **English Document 🇬🇧** ](https://github.com/AAChartModel/AAChartKit)  |  [ **简体中文文档 🇨🇳** ](https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md)
+## [ **English Document 🇬🇧** ](https://github.com/AAChartModel/AAChartKit)  |  [ **简体中文文档 🇨🇳** ](https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md)| [ **繁體中文文檔 🇭🇰** ](https://github.com/AAChartModel/AAChartKit/blob/master/TRADITIONAL-CHINESE-README.md)
 
 ### The Swift version of AAChartKit can be found here:
 #### *https://github.com/AAChartModel/AAChartKit-Swift*
@@ -141,18 +141,19 @@ AAChartModel *aaChartModel = AAChartModel.new
 .yAxisTitleSet(@"Degrees Celsius")
 .seriesSet(@[
     AASeriesElement.new
-        .nameSet(@"2017")
-        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
+    .nameSet(@"2017")
+    .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
     AASeriesElement.new
-        .nameSet(@"2018")
-        .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
+    .nameSet(@"2018")
+    .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
     AASeriesElement.new
-        .nameSet(@"2019")
-        .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
+    .nameSet(@"2019")
+    .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
     AASeriesElement.new
-        .nameSet(@"2020")
-        .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
-]);
+    .nameSet(@"2020")
+    .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
+])
+;
 ```
 4. Draw the chart (this method is only called the first time you create an AAChartView instance object) 
 ```objective-c
@@ -291,7 +292,7 @@ For example
 * configuring AATooltip instance object properties as follow:
 
 
-```js
+```swift
  /*Custom Tooltip Style ---*/
     AATooltip *tooltip = aaOptions.tooltip;
     tooltip
@@ -317,26 +318,30 @@ you can get the customized tooltip style chart like this👇
 
 * configuring AATooltip instance object properties as follow:
 
-```js
-    aaOptions.tooltip
-    .useHTMLSet(true)
-    .formatterSet(@AAJSFunc(function () {
-        let wholeContentStr ='<span style=\"' + 'color:lightGray; font-size:13px\"' + '>◉ Time: ' + this.x + ' year</span><br/>';
-        let length = this.points.length;
-        for (let i = 0; i < length; i++) {
-            let thisPoint = this.points[i];
-            let yValue = thisPoint.y;
-            if (yValue != 0) {
-                let spanStyleStartStr = '<span style=\"' + 'color:'+ thisPoint.color + '; font-size:13px\"' + '>◉ ';
-                let spanStyleEndStr = '</span> <br/>';
-                wholeContentStr += spanStyleStartStr + thisPoint.series.name + ': ' + thisPoint.y + '℃' + spanStyleEndStr;
-            }
-        }
-        return wholeContentStr;
-    }))
-    .backgroundColorSet(@"#050505")
-    .borderColorSet(@"#050505")
-    ;
+```swift
+ aaOptions.tooltip
+ .useHTMLSet(true)
+ .formatterSet(@AAJSFunc(function () {
+     let colorsArr = [];
+     colorsArr.push("mediumspringgreen");
+     colorsArr.push("deepskyblue");
+     colorsArr.push("red");
+     colorsArr.push("sandybrown");
+     let wholeContentString ='<span style=\"' + 'color:lightGray; font-size:13px\"' + '>◉ Time: ' + this.x + ' year</span><br/>';
+     for (let i = 0;i < 4;i++) {
+         let thisPoint = this.points[i];
+         let yValue = thisPoint.y;
+         if (yValue != 0) {
+             let spanStyleStartStr = '<span style=\"' + 'color:'+ colorsArr[i] + '; font-size:13px\"' + '>◉ ';
+             let spanStyleEndStr = '</span> <br/>';
+             wholeContentString += spanStyleStartStr + thisPoint.series.name + ': ' + thisPoint.y + '℃' + spanStyleEndStr;
+         }
+     }
+     return wholeContentString;
+ }))
+ .backgroundColorSet(@"#050505")
+ .borderColorSet(@"#050505")
+ ;
 ```
 
 you can get the customized tooltip style chart like this👇  
@@ -378,11 +383,11 @@ AACHARTKIT_EXTERN AAChartType const AAChartTypeColumn;          //column chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypeBar;             //bar chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypeArea;            //area chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypeAreaspline;      //area spline chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypeLine;            //line chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeLine;            //line chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypeSpline;          //spline chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypeScatter;         //scatter chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypePie;             //pie chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypeBubble;          //bubble chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBubble;          //bubble chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypePyramid;         //pyramid chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypeFunnel;          //funnel chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypeColumnrange;     //column range chart
@@ -391,32 +396,15 @@ AACHARTKIT_EXTERN AAChartType const AAChartTypeAreasplinerange; //area spline ra
 AACHARTKIT_EXTERN AAChartType const AAChartTypeBoxplot;         //box plot chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypeWaterfall;       //Waterfall chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypePolygon;         //polygon chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypeGauge;           //gauge chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypeErrorbar;        //error bar chart
 ```
 ### Supported zoom guesture types for now
-```objective-c
+```Objective-c
 typedef NSString *AAChartZoomType;
 
 AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone;
 AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeX;
 AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeY;
 AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeXY;
-```
-
-### Suppported line dash style types for now
-```objective-c
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeSolid;           //———————————————————————————————————
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDash;       //— — — — — — — — — — — — — — — — — —
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDot;        //ⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈ
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDashDot;    //—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDashDotDot; //—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeDot;             //‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeDash;            //—— —— —— —— —— —— —— —— —— —— —— ——
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDash;        //——— ——— ——— ——— ——— ——— ——— ——— ———
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeDashDot;         //——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDot;     //———‧———‧———‧———‧———‧———‧———‧———‧———‧
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDotDot;  //———‧‧———‧‧———‧‧———‧‧———‧‧———‧‧———‧‧
 ```
 
 ### Supported animation types for now
@@ -475,65 +463,70 @@ Here are the ten concrete animation types of AAChartKit
 
 ## AAChartModel:chart attribute list
 ```objective-c
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, title)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, titleStyle)
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, title);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSNumber *, titleFontSize);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, titleFontColor);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, titleFontWeight);
 
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitle)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, subtitleStyle)
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartAlignType, subtitleAlign) 
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitle);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSNumber *, subtitleFontSize);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitleFontColor);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitleFontWeight);
 
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, backgroundColor)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, colorsTheme)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, categories)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, series)
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, series);
 
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartType,            chartType) 
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartStackingType,    stacking) 
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSymbolType,      markerSymbol) 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartSymbolStyleType, markerSymbolStyle)
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartZoomType,        zoomType)
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSubtitleAlignType, subtitleAlign);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartType,              chartType);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartStackingType,      stacking);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSymbolType,        symbol);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartSymbolStyleType,   symbolStyle);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartZoomType,          zoomType);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartAnimation,         animationType);
 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartAnimation,       animationType) 
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, animationDuration)
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       inverted) 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       polar) 
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, margin)
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, animationDuration);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       inverted);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisReversed);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       gradientColorEnabled);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       polar);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       dataLabelEnabled);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontColor);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, dataLabelFontSize);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontWeight);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSNumber *, xAxisLabelsFontSize);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontColor);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontWeight);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, categories);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisGridLineWidth);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisTickInterval);
 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       dataLabelsEnabled) 
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, dataLabelsStyle)
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSNumber *, yAxisLabelsFontSize);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontColor);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontWeight);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineWidth);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, colorsTheme);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);
 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible) 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisReversed) 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled) 
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, xAxisLabelsStyle)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisTickInterval)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AALineStyle *, xAxisGridLineStyle)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AACrosshair *, xAxisCrosshair)
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipEnabled);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, tooltipValueSuffix);
+AAPropStatementAndPropSetFuncStatement(copy  , AAChartModel, NSString *, tooltipValueString);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipCrosshairs);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       connectNulls);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       legendEnabled);
 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible) 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed) 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled) 
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, yAxisLabelsStyle)
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisLineWidth)
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisAllowDecimals) 
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisPlotLines)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMax)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMin)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisTickInterval)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AALineStyle *, yAxisGridLineStyle)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AACrosshair *, yAxisCrosshair)
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, borderRadius);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);
 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipEnabled) 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipShared) 
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, tooltipValueSuffix)
-
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       connectNulls) 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       legendEnabled) 
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, borderRadius)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, markerRadius)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAScrollablePlotArea *, scrollablePlotArea)
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisAllowDecimals);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisPlotLines);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMax);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMin);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions);
 
 ```
 
@@ -638,7 +631,6 @@ AAChartKit is available under the MIT license. See the [LICENSE](https://github.
  - [x] Support rendering the Nightingale rose 🌹chart
  - [x] Support rendering the circular progress bar chart 
  - [x] Support adding clicked event callbacks for graphics
- - [x] Support adding finger✋🏻 or mouse🖱 move over event callbacks for graphics
  - [ ] Support  code coverage test
 
 

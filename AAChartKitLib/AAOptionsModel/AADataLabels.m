@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -68,12 +68,6 @@ AAPropSetFuncImplementation(AADataLabels, NSString *, overflow)
 AAPropSetFuncImplementation(AADataLabels, BOOL      , softConnector)//Whether to render the connector as a soft arc or a line with sharp break. Only useful for pie, pyramid and funnel chart
 AAPropSetFuncImplementation(AADataLabels, NSDictionary *, textPath)
 AAPropSetFuncImplementation(AADataLabels, NSDictionary *, filter);
-AAPropSetFuncImplementation(AADataLabels, NSString *, connectorColor)
-AAPropSetFuncImplementation(AADataLabels, NSNumber *, connectorPadding)
-AAPropSetFuncImplementation(AADataLabels, NSString *, connectorShape)
-AAPropSetFuncImplementation(AADataLabels, NSNumber *, connectorWidth)
-AAPropSetFuncImplementation(AADataLabels, NSString *, crookDistance)
-AAPropSetFuncImplementation(AADataLabels, NSString *, alignTo)
 
 AAJSFuncTypePropSetFuncImplementation(AADataLabels, NSString *, formatter)
 

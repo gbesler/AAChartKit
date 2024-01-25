@@ -24,7 +24,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -45,8 +45,6 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAMarker, NSString *, fillColor) 
 AAPropStatementAndPropSetFuncStatement(strong, AAMarker, NSNumber *, lineWidth) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
 AAPropStatementAndPropSetFuncStatement(copy,   AAMarker, NSString *, lineColor) //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色。)
 AAPropStatementAndPropSetFuncStatement(strong, AAMarker, AAMarkerStates *,  states)
-AAPropStatementAndPropSetFuncStatement(strong, AAMarker, NSNumber *,  width)
-AAPropStatementAndPropSetFuncStatement(strong, AAMarker, NSNumber *,  height)
 
 @end
 

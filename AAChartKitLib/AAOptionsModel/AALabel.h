@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -44,7 +44,5 @@ AAPropStatementAndPropSetFuncStatement(copy,   AALabel, NSString *, verticalAlig
 AAPropStatementAndPropSetFuncStatement(strong, AALabel, AAStyle  *, style)//轴标签的 CSS 样式
 AAPropStatementAndPropSetFuncStatement(strong, AALabel, NSNumber *, x)//水平偏移
 AAPropStatementAndPropSetFuncStatement(strong, AALabel, NSNumber *, y)// 竖直偏移
-AAPropStatementAndPropSetFuncStatement(copy,   AALabel, NSString *, formatter)
-
 
 @end

@@ -24,7 +24,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -44,15 +44,13 @@
     return self;
 }
 
-AAPropSetFuncImplementation(AAMarker, BOOL,       enabled)
+AAPropSetFuncImplementation(AAMarker, BOOL,         enabled)
 AAPropSetFuncImplementation(AAMarker, NSNumber *, radius) 
 AAPropSetFuncImplementation(AAMarker, NSString *, symbol)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
 AAPropSetFuncImplementation(AAMarker, NSString *, fillColor) //点的填充色(用来设置折线连接点的填充色)
 AAPropSetFuncImplementation(AAMarker, NSNumber *, lineWidth) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
 AAPropSetFuncImplementation(AAMarker, NSString *, lineColor) //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色。)
 AAPropSetFuncImplementation(AAMarker, AAMarkerStates *, states)
-AAPropSetFuncImplementation(AAMarker, NSNumber *,  width)
-AAPropSetFuncImplementation(AAMarker, NSNumber *,  height)
 
 @end
 
@@ -73,7 +71,7 @@ AAPropSetFuncImplementation(AAMarkerStates, AAMarkerHover *, hover)
     return self;
 }
 
-AAPropSetFuncImplementation(AAMarkerHover, BOOL,       enabled)
+AAPropSetFuncImplementation(AAMarkerHover, BOOL,         enabled)
 AAPropSetFuncImplementation(AAMarkerHover, NSString *, fillColor)
 AAPropSetFuncImplementation(AAMarkerHover, NSString *, lineColor)
 AAPropSetFuncImplementation(AAMarkerHover, NSNumber *, lineWidth)

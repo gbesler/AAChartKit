@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -49,17 +49,16 @@ AAPropSetFuncImplementation(AASeriesElement, NSString *, type)
 AAPropSetFuncImplementation(AASeriesElement, BOOL      , allowPointSelect) //是否允许在点击数据点标记（markers）、柱子（柱形图）、扇区（饼图）时选中该点，选中的点可以通过 Chart.getSelectedPoints 来获取。 默认是：false.
 AAPropSetFuncImplementation(AASeriesElement, NSString *, name) 
 AAPropSetFuncImplementation(AASeriesElement, NSArray  *, data) 
-AAPropSetFuncImplementation(AASeriesElement, NSString *, color)
-AAPropSetFuncImplementation(AASeriesElement, NSArray  *, colors)
+AAPropSetFuncImplementation(AASeriesElement, NSString *, color) 
 AAPropSetFuncImplementation(AASeriesElement, id        , colorByPoint) //When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. 默认是：false.
 AAPropSetFuncImplementation(AASeriesElement, AAMarker *, marker) 
 AAPropSetFuncImplementation(AASeriesElement, NSString *, stacking) 
 AAPropSetFuncImplementation(AASeriesElement, NSString *, dashStyle) 
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, threshold) 
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, lineWidth) //折线图、曲线图、直方折线图、折线填充图、曲线填充图、直方折线填充图的线条宽度
-AAPropSetFuncImplementation(AASeriesElement, NSString *, borderColor) //The border color, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
-AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderWidth) //The border width, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
-AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadius) //The corner radius of the border surrounding each column or bar.
+AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderWidth)//柱形图、条形图、扇形图等图形的描边宽度
+AAPropSetFuncImplementation(AASeriesElement, NSString *, borderColor) //柱形图、条形图、扇形图等图形的描边颜色
+AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadius)
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadiusTopLeft)
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadiusTopRight)
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadiusBottomLeft)
@@ -87,9 +86,6 @@ AAPropSetFuncImplementation(AASeriesElement, NSString *, pointPlacement)
 AAPropSetFuncImplementation(AASeriesElement, id        , enableMouseTracking)
 AAPropSetFuncImplementation(AASeriesElement, AADataSorting *, dataSorting)
 AAPropSetFuncImplementation(AASeriesElement, id        , reversed) //Only useful for pyramid chart and funnel chart
-AAPropSetFuncImplementation(AASeriesElement, NSString *, id)
-AAPropSetFuncImplementation(AASeriesElement, id        , connectNulls)
-AAPropSetFuncImplementation(AASeriesElement, id        , enabledCrosshairs)
 
 @end
 
@@ -99,8 +95,6 @@ AAPropSetFuncImplementation(AASeriesElement, id        , enabledCrosshairs)
 AAPropSetFuncImplementation(AADataElement, NSString *, color)
 AAPropSetFuncImplementation(AADataElement, AADataLabels *, dataLabels)
 AAPropSetFuncImplementation(AADataElement, AAMarker *, marker)
-AAPropSetFuncImplementation(AADataElement, NSString *, name)
-AAPropSetFuncImplementation(AADataElement, NSNumber *, x)
 AAPropSetFuncImplementation(AADataElement, NSNumber *, y)
 
 @end

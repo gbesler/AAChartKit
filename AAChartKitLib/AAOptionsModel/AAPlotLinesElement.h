@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -40,6 +40,6 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAPlotLinesElement, NSString *, d
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotLinesElement, NSNumber *, width) //基线宽度
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotLinesElement, NSNumber *, value) //显示位置
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotLinesElement, NSNumber *, zIndex)//层叠，标示线在图表中显示的层叠级别，值越大，显示越向前，默认标示线显示在数据线之后
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotLinesElement, AALabel  *, label) //标示线的文字标签，用来描述标示线
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotLinesElement, AALabel *, label) //标示线的文字标签，用来描述标示线
 
 @end

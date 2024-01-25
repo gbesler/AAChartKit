@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -31,7 +31,6 @@
  */
 
 #import "AAChart.h"
-#import "NSString+toPureJSString.h"
 
 @implementation AAChart
 
@@ -56,7 +55,6 @@ AAPropSetFuncImplementation(AAChart, NSNumber    *, spacingBottom)
 AAPropSetFuncImplementation(AAChart, NSNumber    *, spacingLeft)
 AAPropSetFuncImplementation(AAChart, AAScrollablePlotArea *, scrollablePlotArea)
 AAPropSetFuncImplementation(AAChart, AAResetZoomButton *, resetZoomButton)
-AAPropSetFuncImplementation(AAChart, AAChartEvents *, events)
 
 @end
 
@@ -78,36 +76,5 @@ AAPropSetFuncImplementation(AAScrollablePlotArea, NSNumber *, scrollPositionY)
 AAPropSetFuncImplementation(AAResetZoomButton, AAPosition   *, position)
 AAPropSetFuncImplementation(AAResetZoomButton, NSString     *, relativeTo)
 AAPropSetFuncImplementation(AAResetZoomButton, NSDictionary *, theme)
-
-@end
-
-
-@implementation AAChartEvents : NSObject
-
-AAJSFuncTypePropSetFuncImplementation(AAChartEvents, NSString *, click)
-AAJSFuncTypePropSetFuncImplementation(AAChartEvents, NSString *, load)
-AAJSFuncTypePropSetFuncImplementation(AAChartEvents, NSString *, redraw)
-AAJSFuncTypePropSetFuncImplementation(AAChartEvents, NSString *, render)
-AAJSFuncTypePropSetFuncImplementation(AAChartEvents, NSString *, selection)
-
-- (void)setClick:(NSString *)click {
-    _click = [click aa_toPureJSString];
-}
-
-- (void)setLoad:(NSString *)load {
-    _load = [load aa_toPureJSString];
-}
-
-- (void)setRedraw:(NSString *)redraw {
-    _redraw = [redraw aa_toPureJSString];
-}
-
-- (void)setRender:(NSString *)render {
-    _render = [render aa_toPureJSString];
-}
-
-- (void)setSelection:(NSString *)selection {
-    _selection = [selection aa_toPureJSString];
-}
 
 @end

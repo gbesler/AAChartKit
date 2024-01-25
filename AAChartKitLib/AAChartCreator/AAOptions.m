@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -57,6 +57,7 @@ AAPropSetFuncImplementation(AAOptions, AAPane        *, pane)
 AAPropSetFuncImplementation(AAOptions, NSArray       *, colors)
 AAPropSetFuncImplementation(AAOptions, AACredits     *, credits)
 AAPropSetFuncImplementation(AAOptions, AALang        *, defaultOptions)
+AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
 
 @end
 
@@ -73,9 +74,7 @@ AAPropSetFuncImplementation(AAOptions, AALang        *, defaultOptions)
     .pinchTypeSet(aaChartModel.zoomType)//设置手势缩放方向
     .panningSet(true)//设置手势缩放后是否可平移
     .polarSet(aaChartModel.polar)
-    .marginSet(aaChartModel.margin)
-    .scrollablePlotAreaSet(aaChartModel.scrollablePlotArea)
-    ;
+    .scrollablePlotAreaSet(aaChartModel.scrollablePlotArea);
     
     AATitle *aaTitle = AATitle.new
     .textSet(aaChartModel.title);//标题文本内容
@@ -95,6 +94,7 @@ AAPropSetFuncImplementation(AAOptions, AALang        *, defaultOptions)
     AATooltip *aaTooltip = AATooltip.new
     .enabledSet(aaChartModel.tooltipEnabled)//启用浮动提示框
     .sharedSet(aaChartModel.tooltipShared)//多组数据共享一个浮动提示框
+    .crosshairsSet(true)//启用准星线
     .valueSuffixSet(aaChartModel.tooltipValueSuffix);//浮动提示框的单位名称后缀
     
     AAPlotOptions *aaPlotOptions = AAPlotOptions.new
@@ -102,9 +102,11 @@ AAPropSetFuncImplementation(AAOptions, AALang        *, defaultOptions)
                .stackingSet(aaChartModel.stacking)
                );//设置是否百分比堆叠显示图形
     
-    aaPlotOptions.series.animation = AAAnimation.new
-    .easingSet(aaChartModel.animationType)
-    .durationSet(aaChartModel.animationDuration);
+    if (aaChartModel.animationType != 0) {
+        aaPlotOptions.series.animation = AAAnimation.new
+        .easingSet(aaChartModel.animationType)
+        .durationSet(aaChartModel.animationDuration);
+    }
     
     [self configureTheStyleOfConnectNodeWithChartModel:aaChartModel plotOptions:aaPlotOptions];
     [self configureTheAAPlotOptionsWithPlotOptions:aaPlotOptions chartModel:aaChartModel];
@@ -120,8 +122,7 @@ AAPropSetFuncImplementation(AAOptions, AALang        *, defaultOptions)
     .plotOptionsSet(aaPlotOptions)
     .legendSet(aaLegend)
     .seriesSet(aaChartModel.series)
-    .colorsSet(aaChartModel.colorsTheme)//设置颜色主题
-    ;
+    .colorsSet(aaChartModel.colorsTheme);//设置颜色主题
     
     [self configureAxisContentAndStyleWithAAOptions:aaOptions AAChartModel:aaChartModel];
     
@@ -146,7 +147,7 @@ AAPropSetFuncImplementation(AAOptions, AALang        *, defaultOptions)
         .symbolSet(aaChartModel.markerSymbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
         
         if (aaChartModel.markerSymbolStyle == AAChartSymbolStyleTypeInnerBlank) {
-            aaMarker.fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
+            aaMarker.fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
             .lineWidthSet(@(0.4 * aaChartModel.markerRadius.floatValue))//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
             .lineColorSet(@"");//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
         } else if (aaChartModel.markerSymbolStyle == AAChartSymbolStyleTypeBorderBlank) {
@@ -178,44 +179,37 @@ AAPropSetFuncImplementation(AAOptions, AALang        *, defaultOptions)
                               .borderRadiusSet(aaChartModel.borderRadius)
                               );
         if (aaChartModel.polar == true) {
-            aaColumn
-            .pointPaddingSet(@0)
+            aaColumn.pointPaddingSet(@0)
             .groupPaddingSet(@0.005);
         }
-        aaPlotOptions
-        .columnSet(aaColumn);
+        aaPlotOptions.columnSet(aaColumn);
     } else if (aaChartType == AAChartTypeBar) {
         AABar *aaBar = (AABar.new
                         .borderWidthSet(@0)
                         .borderRadiusSet(aaChartModel.borderRadius)
                         );
         if (aaChartModel.polar == true) {
-            aaBar
-            .pointPaddingSet(@0)
+            aaBar.pointPaddingSet(@0)
             .groupPaddingSet(@0.005);
         }
-        aaPlotOptions
-        .barSet(aaBar);
+        aaPlotOptions.barSet(aaBar);
     } else if (aaChartType == AAChartTypePie) {
+        AAPie *aaPie = AAPie.new
+        .allowPointSelectSet(true)
+        .cursorSet(@"pointer")
+        .showInLegendSet(true);
         if (aaChartModel.dataLabelsEnabled == true) {
             aaDataLabels.formatSet(@"<b>{point.name}</b>: {point.percentage:.1f} %");
         }
-        aaPlotOptions
-        .pieSet(AAPie.new
-                .allowPointSelectSet(true)
-                .cursorSet(@"pointer")
-                .showInLegendSet(true)
-                );
+        aaPlotOptions.pieSet(aaPie);
     } else if (aaChartType == AAChartTypeColumnrange) {
-        aaPlotOptions
-        .columnrangeSet(AAColumnrange.new
-                        .borderRadiusSet(aaChartModel.borderRadius)
-                        .borderWidthSet(@0)
-                        );
+        NSMutableDictionary *columnRangeDic = [[NSMutableDictionary alloc]init];
+        [columnRangeDic setValue:aaChartModel.borderRadius forKey:@"borderRadius"];//The color of the border surrounding each column or bar
+        [columnRangeDic setValue:@0 forKey:@"borderWidth"];//The corner radius of the border surrounding each column or bar. default：0.
+        aaPlotOptions.columnrangeSet(columnRangeDic);
     }
     
-    aaPlotOptions.series
-    .dataLabelsSet(aaDataLabels);
+    aaPlotOptions.series.dataLabelsSet(aaDataLabels);
 }
 
 + (void)configureAxisContentAndStyleWithAAOptions:(AAOptions *)aaOptions
@@ -249,14 +243,12 @@ AAPropSetFuncImplementation(AAOptions, AALang        *, defaultOptions)
         ;
         
         AALineStyle *aaXAxisGridLineStyle = aaChartModel.xAxisGridLineStyle;
-        if (aaXAxisGridLineStyle) {
-            aaXAxis
-            .gridLineColorSet(aaXAxisGridLineStyle.color)
-            .gridLineWidthSet(aaXAxisGridLineStyle.width)
-            .gridLineDashStyleSet(aaXAxisGridLineStyle.dashStyle)
-            .gridZIndexSet(aaXAxisGridLineStyle.zIndex)
-            ;
-        }
+        aaXAxis
+        .gridLineColorSet(aaXAxisGridLineStyle.color)
+        .gridLineWidthSet(aaXAxisGridLineStyle.width)
+        .gridLineDashStyleSet(aaXAxisGridLineStyle.dashStyle)
+        .gridZIndexSet(aaXAxisGridLineStyle.zIndex)
+        ;
         
         AAYAxis *aaYAxis = AAYAxis.new
         .titleSet(AAAxisTitle.new
@@ -264,6 +256,7 @@ AAPropSetFuncImplementation(AAOptions, AALang        *, defaultOptions)
         .labelsSet(AALabels.new
                    .enabledSet(aaChartModel.yAxisLabelsEnabled)//设置 y 轴是否显示数字
                    .styleSet(aaChartModel.yAxisLabelsStyle)
+                   .formatSet(@"{value:.,0f}")//让y轴的值完整显示 而不是100000显示为100k
                    )
         .minSet(aaChartModel.yAxisMin)//设置 y 轴最小值,最小值等于零就不能显示负值了
         .maxSet(aaChartModel.yAxisMax)//y轴最大值
@@ -278,14 +271,12 @@ AAPropSetFuncImplementation(AAOptions, AALang        *, defaultOptions)
         ;
 
         AALineStyle *aaYAxisGridLineStyle = aaChartModel.yAxisGridLineStyle;
-        if (aaYAxisGridLineStyle) {
-            aaYAxis
-            .gridLineColorSet(aaYAxisGridLineStyle.color)
-            .gridLineWidthSet(aaYAxisGridLineStyle.width)
-            .gridLineDashStyleSet(aaYAxisGridLineStyle.dashStyle)
-            .gridZIndexSet(aaYAxisGridLineStyle.zIndex)
-            ;
-        }
+        aaYAxis
+        .gridLineColorSet(aaYAxisGridLineStyle.color)
+        .gridLineWidthSet(aaYAxisGridLineStyle.width)
+        .gridLineDashStyleSet(aaYAxisGridLineStyle.dashStyle)
+        .gridZIndexSet(aaYAxisGridLineStyle.zIndex)
+        ;
         
         aaOptions.xAxis = aaXAxis;
         aaOptions.yAxis = aaYAxis;

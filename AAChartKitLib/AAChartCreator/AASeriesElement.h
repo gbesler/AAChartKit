@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -41,16 +41,15 @@ AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , allo
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, name) 
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSArray  *, data) 
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSString *, color)
-AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSArray  *, colors)
 AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, id        , colorByPoint) //When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. 默认是：false.
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AAMarker *, marker) 
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, stacking) 
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, dashStyle) 
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, threshold) 
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, lineWidth) //折线图、曲线图、直方折线图、折线填充图、曲线填充图、直方折线填充图的线条宽度
-AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, borderColor) //The border color, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
-AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderWidth) //The border width, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
-AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderRadius) //The corner radius of the border surrounding each column or bar.
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderWidth)//柱形图、条形图、扇形图等图形的描边宽度
+AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, borderColor) //柱形图、条形图、扇形图顿号等图形的描边颜色
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderRadius)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderRadiusTopLeft)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderRadiusTopRight)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderRadiusBottomLeft)
@@ -78,9 +77,6 @@ AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, poin
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , enableMouseTracking)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AADataSorting *, dataSorting)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , reversed) //Only useful for pyramid chart and funnel chart
-AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, id)
-AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , connectNulls)
-AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , enabledCrosshairs)
 
 @end
 
@@ -90,8 +86,6 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , enab
 AAPropStatementAndPropSetFuncStatement(copy  , AADataElement, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(strong, AADataElement, AADataLabels *, dataLabels)
 AAPropStatementAndPropSetFuncStatement(strong, AADataElement, AAMarker *, marker)
-AAPropStatementAndPropSetFuncStatement(copy  , AADataElement, NSString *, name)
-AAPropStatementAndPropSetFuncStatement(strong, AADataElement, NSNumber *, x)
 AAPropStatementAndPropSetFuncStatement(strong, AADataElement, NSNumber *, y)
 
 @end

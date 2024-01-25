@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -45,7 +45,7 @@
 AAPropSetFuncImplementation(AAColumn, NSString *,     name)
 AAPropSetFuncImplementation(AAColumn, NSArray  *,     data)
 AAPropSetFuncImplementation(AAColumn, NSString *,     color)
-AAPropSetFuncImplementation(AAColumn, BOOL,           grouping)
+AAPropSetFuncImplementation(AAColumn, BOOL,             grouping)
 AAPropSetFuncImplementation(AAColumn, NSNumber *,     pointPadding)
 AAPropSetFuncImplementation(AAColumn, NSNumber *,     pointPlacement)
 AAPropSetFuncImplementation(AAColumn, NSNumber *,     groupPadding)
@@ -55,8 +55,6 @@ AAPropSetFuncImplementation(AAColumn, AADataLabels *, dataLabels)
 AAPropSetFuncImplementation(AAColumn, NSString *,     stacking)
 AAPropSetFuncImplementation(AAColumn, NSNumber *,     borderRadius)
 AAPropSetFuncImplementation(AAColumn, NSNumber *,     yAxis)
-AAPropSetFuncImplementation(AAColumn, NSNumber *,     pointWidth) //柱形条的宽度
-AAPropSetFuncImplementation(AAColumn, NSNumber *,     maxPointWidth) //柱形条的最大宽度
-AAPropSetFuncImplementation(AAColumn, NSNumber *,     minPointLength) //柱形条的最小高度
+
 
 @end

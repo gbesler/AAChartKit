@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -35,7 +35,7 @@
 #import <Foundation/Foundation.h>
 #import "AAGlobalMacro.h"
 
-@class AAAnimation, AAScrollablePlotArea, AAResetZoomButton, AAChartEvents;
+@class AAAnimation, AAScrollablePlotArea, AAResetZoomButton;
 
 @interface AAChart : NSObject
 
@@ -60,8 +60,6 @@ AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, spacingBo
 AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, spacingLeft) //👈
 AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAScrollablePlotArea *, scrollablePlotArea)
 AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAResetZoomButton *, resetZoomButton)
-AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAChartEvents *, events)
-
 
 @end
 
@@ -85,17 +83,6 @@ AAPropStatementAndPropSetFuncStatement(strong, AAScrollablePlotArea, NSNumber *,
 AAPropStatementAndPropSetFuncStatement(strong, AAResetZoomButton, AAPosition   *, position)
 AAPropStatementAndPropSetFuncStatement(copy  , AAResetZoomButton, NSString     *, relativeTo)
 AAPropStatementAndPropSetFuncStatement(strong, AAResetZoomButton, NSDictionary *, theme)
-
-@end
-
-
-@interface AAChartEvents : NSObject
-
-AAPropStatementAndPropSetFuncStatement(copy  , AAChartEvents, NSString     *, click)
-AAPropStatementAndPropSetFuncStatement(copy  , AAChartEvents, NSString     *, load)
-AAPropStatementAndPropSetFuncStatement(copy  , AAChartEvents, NSString     *, redraw)
-AAPropStatementAndPropSetFuncStatement(copy  , AAChartEvents, NSString     *, render)
-AAPropStatementAndPropSetFuncStatement(copy  , AAChartEvents, NSString     *, selection)
 
 @end
 

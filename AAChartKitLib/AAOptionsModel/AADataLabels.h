@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -108,20 +108,14 @@ AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, y)
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, backgroundColor)
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, borderColor)
-AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, borderRadius)
-AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, borderWidth)
+AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSNumber *, borderRadius)
+AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSNumber *, borderWidth)
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, shape)
 AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , crop)
 AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , inside)
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, overflow)//该参数用于处理当数据标签超出绘图区时处理方式，默认值是 justify，即将超过绘图区的数据标签对齐绘图区内，对于柱形，也就意味着数据标签将会被移动到柱子内部。通过设置 crop 为 false 及 overflow 为"none" 可以让数据标签显示在绘图区的外面。 默认是：justify.
-AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , softConnector)//Whether to render the connector as a soft arc or a line with sharp break. Only useful for pie, pyramid and funnel chart
+AAPropStatementAndPropSetFuncStatement(assign,   AADataLabels, BOOL      , softConnector)//Whether to render the connector as a soft arc or a line with sharp break. Only useful for pie, pyramid and funnel chart
 AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSDictionary *, textPath)
 AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSDictionary *, filter)
-AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, connectorColor)
-AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, connectorPadding)
-AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, connectorShape)
-AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, connectorWidth)
-AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, crookDistance)
-AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, alignTo)
 
 @end

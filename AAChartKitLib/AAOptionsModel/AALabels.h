@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -50,5 +50,9 @@ AAPropStatementAndPropSetFuncStatement(strong, AALabels, AAStyle  *, style)//轴
 AAPropStatementAndPropSetFuncStatement(strong, AALabels, NSNumber *, x)//相对于坐标轴刻度线的水平偏移。 默认是：0.
 AAPropStatementAndPropSetFuncStatement(strong, AALabels, NSNumber *, y)//相对于坐标轴刻度线的垂直平偏移。 默认是：null.
 AAPropStatementAndPropSetFuncStatement(assign, AALabels, BOOL      , useHTML)//HTML渲染
+
+
+
+
 
 @end
